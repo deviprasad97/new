@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <title>CodePen - Material Inspired News</title>
+
+
+
+
+        <style>
+      @import url(http://fonts.googleapis.com/css?family=Roboto:300);
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+  background-color: #eee;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+   -webkit-tap-highlight-color: transparent;
+}
+
+section {
+  position: relative;
+  width: 400px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.header {
+  width: 100%;
+  height: 250px;
+  background-color: #3498db;
+  overflow: hidden;
+}
+.header .circle {
+  position: relative;
+  top: 20px;
+  left: 60px;
+  width: 50px;
+  height: 50px;
+  background-color: #f1c40f;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  z-index: 10;
+}
+.header h1 {
+  position: relative;
+  top: 10px;
+  left: 110px;
+  font-size: 2.5em;
+  color: #fff;
+  border-bottom: 1px solid #f1c40f;
+}
+
+.line {
+  position: absolute;
+  z-index: 0;
+  top: 50px;
+  left: 85px;
+  height: calc(130% + 200px);
+  width: 0px;
+  border-right: 1px solid #f1c40f;
+}
+
+#content {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  padding-top: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#content::-webkit-scrollbar {
+  width: 6px;
+  background-color: #EBEBEB;
+}
+#content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+#content .object {
+  width: 100%;
+}
+#content .object:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+#content .object .date {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  background-color: #f1c40f;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.9em;
+  font-size: 1.4em;
+}
+#content .object .circle {
+  position: relative;
+  float: left;
+  z-index: 10;
+  margin: 30px 0 0 -5px;
+  width: 20px;
+  height: 20px;
+  background-color: #3498db;
+  border-radius: 50%;
+}
+#content .object .context {
+  float: left;
+  color: #666;
+  width: 200px;
+  min-height: 40px;
+  margin: 10px 0 10px 0px;
+  padding: 10px;
+  line-height: 1.5em;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+  background-color: #eee;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+   -webkit-tap-highlight-color: transparent;
+}
+
+
+.header .circle {
+    position: relative;
+    top: 50px;
+    left: -11px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(241, 196, 15, 0);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.header1 .circle1 {
+    position: relative;
+    top: 50px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    background-color: #f1c40f;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+    </style>
+
+    <style type="text/css">
+
+a:link {color: #ffffff;}
+a:visited {color: #ffffff;}
+a {text-decoration: none;}
+
+</style>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="components/iron-flex-layout/iron-flex-layout.html">
+    <link rel="import" href="components/iron-icons/iron-icons.html">
+    <link rel="import" href="components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="components/paper-progress/paper-progress.html">
+    <link rel="import" href="components/paper-styles/default-theme.html">
+    <link rel="import" herf="components/paper-item/paper-item.html">
+    <link rel="import" href="components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" herf="components/paper-drawer-panel/paper-drawer-panel.html">
+    <link rel="import" herf="components/paper-button/paper-button.html">
+    <link rel="import" href="components/paper-drawer-panel/paper-drawer-panel.html">
+
+
+  </head>
+
+  <body translate="no" >
+    <div>
+    </div>
+
+    <div class="header">
+
+
+    <div class="circle1"></div>
+<br><br><br>
+    <h1><a href="index.html"><paper-icon-button icon="arrow-back"></paper-icon-button></a> News </h1>
+
+  </div>
+
+  <div class="line"></div>
+  <div class="line"></div>
+
+
+  <div id="content">
+    <div class="object">
+      <div class="date"> 27 </div>
+      <div class="circle"></div>
+      <div class="context">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloribus ad neque laudantium sequi atque officiis quaerat iusto impedit saepe tempora inventore, unde dolore sit aut velit quia adipisci nam.
+      </div>
+    </div>
+
+    <div class="object">
+      <div class="date">
+        25
+      </div>
+      <div class="circle">
+      </div>
+      <div class="context">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloribus ad neque laudantium sequi atque officiis quaerat iusto.
+      </div>
+    </div>
+
+    <div class="object">
+      <div class="date">
+        24
+      </div>
+      <div class="circle">
+      </div>
+      <div class="context">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </div>
+    </div>
+
+    <div class="object">
+      <div class="date">
+        21
+      </div>
+      <div class="circle">
+      </div>
+      <div class="context">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloribus ad neque laudantium sequi atque officiis quaerat iusto impedit saepe tempora inventore, unde dolore sit aut velit quia adipisci nam.
+      </div>
+    </div>
+
+    <div class="object">
+      <div class="date">
+        19
+      </div>
+      <div class="circle">
+      </div>
+      <div class="context">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloribus ad neque laudantium sequi atque officiis quaerat iusto impedit saepe tempora inventore, unde dolore sit aut velit quia adipisci nam.
+      </div>
+    </div>
+
+    <div class="object">
+      <div class="line"></div>
+      <div class="date">
+        18
+      </div>
+      <div class="circle">
+      </div>
+      <div class="context">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloribus ad neque laudantium sequi atque officiis
+      </div>
+    </div>
+  </div>
+
+
+
+        <script>
+      /*
+
+Inspired by Google Material Design
+by Flavio Schneider
+
+*/
+      //# sourceURL=pen.js
+    </script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+
+  </body>
+</html>

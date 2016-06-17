@@ -1,0 +1,501 @@
+
+<!DOCTYPE html><html class=''>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400, 700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<link rel='stylesheet prefetch' href='//codepen.io/assets/reset/normalize.css'>
+<style class="cp-pen-styles">body {
+  font-family: Roboto, sans-serif;
+
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+  background: #FAFAFA;
+}
+
+h3 {
+
+  margin: 20px 0 0 0;
+  padding: 0 20px;
+}
+
+p {
+  font-size: 16px;
+  padding: 0 20px;
+}
+
+em {
+  font-style: normal;
+  color: #FFC400;
+}
+
+a {
+  font-style: normal;
+  color: #FFD740;
+  text-decoration: none;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.sub {
+  margin: 0;
+}
+
+.button {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    /* font-size: 20px; */
+    line-height: 60px;
+    font-weight: bold;
+    /* -webkit-transform: rotate(45deg); */
+    /* transform: rotate(45deg); */
+    -webkit-transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-top: 17px;
+}
+
+.expand .button {
+    /* -webkit-transform: rotate(630deg); */
+    /* transform: rotate(630deg); */
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container {
+
+  margin: auto;
+  left: 0;
+      right: 0;
+      top: 5vh;
+      background-color: #03A9F4;
+      /* border-radius: 50%; */
+      width: auto;
+      max-width: 300px;
+      height: 100px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+  -webkit-transition: all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s, width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
+  transition: all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s, width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
+}
+
+.container.expand {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
+  border-radius: 0;
+  width: 80%;
+  height: 500px;
+  max-width: 600px;
+  padding: 0;
+  -webkit-transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
+  transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
+}
+
+.content {
+  -webkit-transform: translateY(200%);
+          transform: translateY(200%);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  text-align: left;
+  -webkit-transition: opacity 0.2s 0.2s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.2s 0.2s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expand .content {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
+  -webkit-transition: opacity 0s, -webkit-transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  transition: opacity 0s, -webkit-transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s, opacity 0s;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s, opacity 0s, -webkit-transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+}
+
+.content .head {
+  padding: 0 0 20px 0;
+}
+
+.content .body {
+  color: #000;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.action-bar {
+  padding-left: 15px;
+  border-top: 1px solid #E0E0E0;
+  width: 100%;
+}
+
+.action-bar a {
+  text-transform: uppercase;
+  line-height: 52px;
+  color: #FFC400;
+}
+</style>
+<!--Material Design CSS-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+<script src="components/webcomponentsjs/webcomponents-lite.js"></script>
+
+<link rel="import" href="components/iron-demo-helpers/demo-pages-shared-styles.html">
+<link rel="import" href="components/iron-demo-helpers/demo-snippet.html">
+<link rel="import" href="components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="components/iron-icons/iron-icons.html">
+<link rel="import" href="components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="components/paper-progress/paper-progress.html">
+<link rel="import" href="components/paper-styles/default-theme.html">
+<link rel="import" herf="components/paper-item/paper-item.html">
+<link rel="import" href="components/paper-toolbar/paper-toolbar.html">
+<link rel="import" herf="components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" herf="components/paper-button/paper-button.html">
+<link rel="import" href="components/paper-drawer-panel/paper-drawer-panel.html">
+<title>Material Design Lite</title>
+<script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Material Design Lite">
+<meta name="msapplication-tap-highlight" content="no">
+<link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<link rel="shortcut icon" href="images/favicon.png">
+
+<!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+<!--
+<link rel="canonical" href="http://www.example.com/">
+-->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.cyan-light_blue.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+  background-color: #eee;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+   -webkit-tap-highlight-color: transparent;
+}
+
+#view-source {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+  background-color: #eee;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+   -webkit-tap-highlight-color: transparent;
+}
+
+
+.mdl-color--teal-300 {
+/* background-color: #4db6ac !important; */
+background-image: images/news.png;
+}
+body{
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-tap-highlight-color: transparent;
+}
+
+.mdl-card {
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+font-size: 16px;
+font-weight: 400;
+min-height: 100px;
+overflow: hidden;
+width: 330px;
+z-index: 1;
+position: relative;
+background: #fff;
+border-radius: 2px;
+box-sizing: border-box;
+}
+.mdl-layout__header-row{
+background: #0D47A1;
+color: #fff;
+}
+
+}
+</style>
+<style type="text/css">
+
+a:link {color: #757575;}
+a:visited {color: #757575;}
+a {text-decoration: none;}
+.material-icons {
+  color: #fff;
+}
+
+</style>
+<!--Material Design CSS Ended-->
+
+
+</head>
+
+<body style="overflow : auto; "  >
+  <div class="demo-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header" style="background: #0D47A1;">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Information Hub</span>
+        <div class="mdl-layout-spacer"></div>
+  <a href="index.html">       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <font color="#fff"> <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+            <i class="material-icons">home</i>
+          </label></font>
+          <div class="mdl-textfield__expandable-holder">
+
+          </div>
+        </div></a>
+
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+          <li class="mdl-menu__item">About</li>
+          <li class="mdl-menu__item">Contact</li>
+          <li class="mdl-menu__item">Legal information</li>
+        </ul>
+      </div>
+    </header>
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+      <header class="demo-drawer-header">
+        <img src="images/user.jpg" class="demo-avatar">
+        <div class="demo-avatar-dropdown">
+          <span>hello@example.com</span>
+          <div class="mdl-layout-spacer"></div>
+          <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">arrow_drop_down</i>
+            <span class="visuallyhidden">Accounts</span>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+            <li class="mdl-menu__item">hello@example.com</li>
+            <li class="mdl-menu__item">info@example.com</li>
+            <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+          </ul>
+        </div>
+      </header>
+      <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Info Hub</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Fun</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Friends</a>
+        <div class="mdl-layout-spacer"></div>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+      </nav>
+    </div>
+
+
+
+<br>
+    <div class="container"><span class="button">Driving </span>
+      <div class="content">
+        <div class="head">
+          <font size="3">Texas photo identification & Texas driving lisence</font>
+          <p class="sub">by <a href="#" target="_blank">Devi Prasad Tripathy</a></p>
+        </div>
+        <div class="body" style="overflow : auto; ">
+          <p>
+
+            <h4> Texas photo identification card</h4>
+            Students and scholars who do not plan to drive in the U.S. should apply for a Texas Photo Identification Card at the Texas Department of Public Safety (DPS). This card is not related to driving. It is useful as identification when a photo ID is required.<br><br>
+            You will need the following documents in order to make your application: passport, I-20 or DS-2019, Form I-94 and current enrollment letter (Registrar’s Office, MAI Room 1). If you have a Social Security Number (SSN), present your Social Security card at the time of application. However, an SSN is not necessary to apply for a Texas ID. There is a $16.00 fee for this card. You may be asked to show two items proving your current address, such as a lease or piece or mail with your name and address (cable, gas or electric bills are good choices).<br><br>
+          <h4>  Driver’s license for international visitors (F-1 and J-1) </h4>
+            Students and scholars who will be in the U.S. for longer than 30 days and plan to drive a car should obtain a Texas Driver’s License at the Texas Department of Public Safety (DPS). Access to a car, knowledge of Texas driving regulations, as well as testable driving skills is basic requirements for a driver’s license. You must provide your own vehicle when taking the driving test.<br><br>
+            Take the following steps to obtain your driver’s license:<br>
+            <ul>
+              <li>
+            A. Study the information about traffic laws in the Texas Driver’s Handbook, which is available in both English and Spanish, from the Department of Public Safety (DPS), as well as, on-line at http://www.txdps.state.tx.us/internetforms/Forms/DL-57.pdf
+          </li><li>B. Take the written and in-car examinations for driving at any DPS office. If you do not have a driver’s license from another state, you must take both a written and a driving test. There is an $11.00 fee, valid for three opportunities to take the test within a 90-day period.
+          </li><li>C. Pay the $25.00 fee for your Driver’s License.
+          </li><li>D. You will need the following documents in order to make your application: passport, I-20 or DS-2019, Form I-94, current enrollment letter (Registrar’s Office, MAI, Room 1), a completed application (http://www.txdps.state.tx.us/internetforms/Forms/DL-14A.pdf), and Social Security card (if you are eligible to obtain an SSN). If you are not eligible for an SSN, you will need to sign a “Social Security Affidavit” at the DPS office when applying for your Texas Driver’s License. You may be asked to show two items proving your current address, such as a lease or piece or mail with your name and address (cable, gas or electric bills are good choices).
+          </li></ul><br><b>Note:</b> If you own a car but do not have insurance, you will <b>NOT</b> be permitted to apply for a driver’s license. If possible, it is recommended that you apply for a driver’s license before you purchase a car.
+            A list of DPS locations is on the last page of this handout.
+
+         <h4>
+            Problems with Student Visa Status Verification</h4><br>
+            Sometimes the officer assisting you at DPS may not be able to verify your valid student or scholar visa status. Students or scholars in F-1 or J-1 status make up a small number of the visitors to DPS and new employees may not be familiar with processing applications for these individuals. If the DPS officer is not able to verify your status in the SAVE system, you should politely ask to speak with a supervisor. You can say something like, “I think I have a complicated case, may I please speak with a supervisor?” If a supervisor is not able to verify your valid student status, DPS should give you information for contacting DPS Headquarters for additional assistance. If you have any trouble with this process, contact the International Office for assistance.<br><br>
+            Here are some common reasons students and scholars are not able to get a Texas ID or driver’s license:<br>
+            <ul>
+            <li>1) You have gone to the DPS office too early. After you arrive in the US, the International Office updates your SEVIS record to show that you are here and that you have checked in with our office. Students should plan to wait at least 10 days from entering the US and at least 2 days from registering for classes before visiting DPS. J-1 scholars should wait at least 10 days from entering the US and 3 days after attending the J-1 Scholar Orientation. Transfer students will need to wait at least two days after checking in and registering for classes before visiting DPS.
+            </li><li>2) Inconsistencies in your immigration documents. If your name on your I-20 or DS-2019 does not match your passport exactly, please bring this to the attention of the International Office before visiting DPS.
+            </li><li>3) You have a pending status change or OPT application. The information DPS can see about your record is limited and DPS officers may not be experts in your immigration situation. If you are changing to a new immigration status or you are applying for OPT, it may be difficult for the DPS officer to verify your valid status. If this is the case for you, be sure to ask to meet with a supervisor at DPS. Even if you meet with a supervisor, additional research may be required to verify your status. If this is the case, the DPS officer will give you contact information for DPS Headquarters. Contact the International Office if you have difficulties. You should expect delays in the processing of your driver’s license or Texas ID if: you have a pending OPT application, you have a cap gap I-20, or you have a pending change of status application.
+            </li></ul>
+
+
+        <h4>Driver’s license for international dependents</h4> <br>
+            International dependents (F-2, J-2, H-4, etc.) can obtain a Texas Driver’s License at the Texas Department of Public Safety Office (DPS). Access to a car, knowledge of Texas driving regulations, and testable driving skills are basic requirements for a driver’s license. You must provide your own vehicle when taking the driving test.<br><br>
+            Take the following steps to obtain your driver’s license:<br>
+            <ul>
+            <li>1. If you are eligible to obtain an SSN (i.e. you are a J-2 dependent and have work authorization), take your EAD (Employment Authorization Document), passport, Form I-94 and DS-2019 to the Social Security Administration to apply for an SSN. It will take approximately two to four weeks to obtain your Social Security card.
+            If you are not eligible for an SSN (i.e. you are an F-2 or H-4 dependent, or a J-2 dependent without work authorization), you will need to sign a “Social Security Affidavit” at the DPS office when applying for your Texas Driver’s License.
+            Note: If you have already obtained an SSN from a previous visit to the U.S., you will not need to go to the Social Security Office. Simply present your Social Security card to the DPS when applying for your driver’s license.
+            <li>2. Follow steps A and B on the reverse side of this handout.</li>
+            <li>3. You will need the following documents in order to make your application:</li>
+            <li>a. Passport</li>
+            <li>b. I-20 or DS-2019</li>
+            <li>c. Form I-94</li>
+            <li>d. Spouse’s current</li></li>
+            <hr>
+          <h3>  To enroll in an online Course <a href="http://www.texasdrivingschool.com/">Click here</a></h3>
+    <br><br><br><br><br>
+
+
+
+
+            <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+
+
+
+            </p>
+          <div class="action-bar"><a>SHARE</a><a>LEARN MORE</a></div>
+        </div>
+      </div>
+    </div>
+
+
+<br>
+
+      <div class="container"><span class="button">Flight </span>
+        <div class="content">
+          <div class="head">
+            <h3>Flight</h3>
+            <p class="sub">by <a href="#" target="_blank">Devi Prasad Tripathy</a></p>
+          </div>
+          <div class="body" style="overflow : auto; ">
+            <p>
+
+              If you are Booking Flight tickets then visit http://www.emirates.com, https://www.studentuniverse.com/, to Get best Fligth Deals.<br>
+        Make sure to check whether the airlines allows 2 Check in Baggages or not, If you have connecting of different airline then make sure you have asked them too Regarding the bag allowance, to avoid unnecessary charges and problems<br>
+        If you have paid online then you will get 3 baggage allowance(Two check in and one cabin baggage). But if you had booked the ticket by visiting to an Emirates office or your respective Airline's office then you have to bring a valid ID proof of yours and ID proof of the person who is paying to the ticket.<br> And also do bring your I20 to qualify for 3 baggage allowance.<br> If have booked tickets via travel agency then make sure with the consent person that you have 3 baggage allowance.<br>
+        Those who have more than one stoppage most likely there will be two different airlines involved so please make sure that the other airline complies with the parent airline and offers 3 baggage allowance. To avoid trouble at airport.<br>
+        To my best of the knowledge if you are Booking with Emirates then they have partnered with Jet Airways and they do comply with the Emirates Baggage allowance. But to be re-assured please do contact the airlines.<br> And on the Day before departure call the airlines confirm your seating and baggage Allowanc.<br>
+        Happy Traveling<br><br><br><br><br><br>
+
+<br><br>
+              </p>
+            <div class="action-bar"><a>SHARE</a><a>LEARN MORE</a></div>
+          </div>
+        </div>
+      </div>
+
+
+<br>
+
+      <div class="container"><span class="button">Bank </span>
+        <div class="content">
+          <div class="head">
+            <h3>How to Pay</h3>
+            <p class="sub">by <a href="#" target="_blank">Devi Prasad Tripathy</a></p>
+          </div>
+          <div class="body" style="overflow : auto; ">
+            <p>
+
+      Take around $1500-$2000 in cash, take a Credit card if possible.<br><br>
+      Now make sure you have activited netbanking here on your parents Account<br><br>
+      Create an Account at <a href="https://www.flywire.com"> FLywire </a>. This is the only official way to do Transaction<br><br>
+      <img src="images/pay.png" width="100%"><br><br>
+      Select University of texas At arlington there fill all contact details and every thing.<br><br>
+      At Payment Options select "Domestic Bank Transfer in Indian Rupees (INR)" there are two other options
+      <ul>
+        <li>VISA: Debit/Credit in INR</li>
+
+        <li>MasterCard: Debit/Credit in INR</li>
+      </ul>
+      But if your Credit limit is less then the amount you are paying like tution Fee then this method will not work and you have to go with NET BANKING ONLY.<br>
+      You can also pay small fee through your Credit Card on MY MAV Portal<br><br>
+
+      <h3>Alternative Method</h3><br>
+      Once you Get there and if you created your Bank Account there transfer the Money from your Parents account to yours via NET BANKING and then pay like a Native American.<br>
+      <br><br>
+      No matter what, you need to create a bank account to so that you have a easy access to your money<br>
+      <br><br><br><br><br><br><br>
+              </p>
+            <div class="action-bar"><a>SHARE</a><a>LEARN MORE</a></div>
+          </div>
+        </div>
+      </div>
+
+  <br>
+
+  <div class="container"><span class="button">Things</span>
+    <div class="content">
+      <div class="head">
+        <h3>Things to Leave</h3>
+        <p class="sub">by <a href="#" target="_blank">Devi Prasad Tripathy</a></p>
+      </div>
+      <div class="body" style="overflow : auto; ">
+        <p>
+Before You depart make sure you have left following things at you Home:
+<ul>
+<li>10 Photocopy of your Passport and VISA</li>
+<li>3-4 Photocopy of your I20 and Accpectance Letter</li>
+<li>List of Addresses, Phone Number and Email Address of University</li>
+<li>10 Blank Paper with you Signature</li>
+</ul><br>
+  <br><br><br><br><br><br><br>
+          </p>
+        <div class="action-bar"><a>SHARE</a><a>LEARN MORE</a></div>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+
+<!---END-->
+
+
+
+
+<script src='//assets.codepen.io/assets/common/stopExecutionOnTimeout.js?t=1'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>$('.button').click(function () {
+    $(this).parent().toggleClass('expand');
+});
+//# sourceURL=pen.js
+</script>
+</body></html>
